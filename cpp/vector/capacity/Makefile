@@ -10,7 +10,7 @@ all: build test
 build: $(builddir) $(builddir)/.build
 
 .PHONY: test
-test: 
+test:
 	@$(target)
 
 $(builddir): 
