@@ -1,0 +1,12 @@
+adb(){
+  /opt/android-sdk/platform-tools/adb ${@:1}
+}
+apk-install(){
+  adb install ${@:1}
+}
+apk-uninstall(){
+  adb shell pm uninstall ${@:1}
+}
+adb-shell(){
+  adb shell ${@:1}
+}

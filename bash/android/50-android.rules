@@ -1,0 +1,2 @@
+#SUBSYSTEMS=="usb", ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", MODE="0666" GROUP="androiddev", SYMLINK+="android%n"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", MODE="0666", GROUP="plugdev", SYMLINK+="android%n"

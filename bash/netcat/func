@@ -1,0 +1,5 @@
+
+#ex: _httpReq www.google.com.tw "/" "127.0.0.1"
+_httpReq(){
+  printf "GET %s HTTP/1.0\r\nUser-Agent: nc/0.0.1\r\nHost: %s\r\nAccept: */*\r\n\r\n" "${2:-/Cfg.txt}" "${3:-127.0.0.1}" | nc ${1:-192.168.0.184} 80
+}

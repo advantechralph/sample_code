@@ -1,0 +1,51 @@
+Vendor	Model	Bands supported
+Cheerzing	ML5535	850 b5, 900 b8
+Cheerzing	ML5510	850 b5, 900 b8
+Cheerzing	ML5530	850 b5, 900 b8
+Cheerzing	ML2510	850 b5, 900 b8
+CMCC	M5310	850 b5, 900 b8
+CMCC	M5311	1800 b3, 850 b5, 900 b8
+Digi International	XBee Cellular NB-IoT	800 b20
+Fibocom	N700-CN	850 b5, 900 b8
+H3C	IM22100-NB	IMT Core b1, 1800 b3, 850 b5, 900 b8, b20, b26
+Hisense	MN1	850 b5, 900 b8
+Hisense	MN2	IMT Core b1, 1800 b3, 850 b5, 900 b8, CEPT 800 b20
+Lierda	NB05-01	850 b5
+Lierda	NB08-01	900 b8
+Maestro Wireless Solutions	M112	Band support varies by area based on model
+Mobiletek	L610-C	1800 b3, 850 b5, 900 b8 (L610-E variant supports B8, B20)
+Mobiletek	L620	1800 b3, 850 b5, 900 b8
+Mobiletek	L700-CU	900 b8, 1800 b3
+Mobiletek	L700-E	900 b8, 800 b20
+Mokuai	WH-NB73	850 b5, 900 b8
+Mokuai	USR-NB75	850 b5, 900 b8, 800 b20, APT 700 b28
+Multi-Tech Systems	MultiConnect Cell 100 Series MTC-NEU1	900 b8, 800 b20
+Quectel	BC26	IMT Core b1, 1800 b3, 850 b5, 900 b8, 1900 b2 AWS b4, 700 b12, 700 b13, 700 b17, 850 B18, 850 b19, 800 b20, 1900 b25, 850 b26, 700 b28, AWS Ext. b66
+Quectel	BC30	IMT Core b1, 1800 b3, 850 b5, 900 b8, 1900 b2 AWS b4, 700 b12, 700 b13, 700 b17, 850 B18, 850 b19, 800 b20, 1900 b25, 850 b26, 700 b28, AWS Ext. b66
+Quectel	BC35-G	IMT Core b1, 1800 b3, 850 b5, 900 b8, 800 b20, 700 b28
+Quectel	BC95-B8	900 b8
+Quectel	BC95-B5	850 b5
+Quectel	BC95-B20	800 b20
+Quectel	BC95-B28	700 b28
+Quectel	BC95-G	1800 b3, 800 b20, 2100 b1, 850 b5, 700 b28, 900 b8
+Quectel	BC66	IMT Core b1, 1800 b3, 850 b5, 900 b8, 1900 b2 AWS b4, 700 b12, 700 b13, 700 b17, 850 B18, 850 b19, 800 b20, 1900 b25, 850 b26, 700 b28, AWS Ext. b66
+Quectel	BC68	850 b5, 700 b28, 900 b8, 1800 b3, 800 b20, 2100 b1
+Ruijie Networks	RG-NB6118	900 b8
+Ruijie Networks	RG-NB6110	850 b5
+Sequans	Monarch N	Bands from 617 MHz to 2.2 GHz
+Sercomm	TPB40-8	900 b8
+Simcom Wireless	SIM7020	IMT Core b1, 1800 b3, 850 b5, 900 b8
+Simcom Wireless	SIM7030	IMT Core b1, 1800 b3, 850 b5, 900 b8
+Simcom Wireless	SIM7000C-N	IMT Core b1, 1800 b3, 850 b5, 900 b8
+Simcom Wireless	SIM7000E-N	1800 b3, 700 b28, 800 b20, 900 b8
+Telit	NE866B1-E1	800 b20, 900 b8
+Telit	NE910C1-E1	800 b20, 900 b8
+Telit	NL865B1-E1	B8, b20
+u-blox	SARA-N200	900 b8
+u-blox	SARA-N201	850 b5
+u-blox	SARA-N210	800 b20
+u-blox	SARA-N211	800 b20, 900 b8
+u-blox	SARA-N280	700 b28
+u-blox	SARA-R410M-02B Cat-NB1 Global	700 b13, 1900 b25, 900 b8, 800 b18, AWS b4, 700 b28, 1800 b3, 800 b19, 700 b17, 800 b20, 700 b12, 2100 b1, 1900 b2, 850 b5, 800 b26
+ZTEWelink (Gosuncn)	ME3612-U1B	AWS b4, 1900 b2, 700 b12, 700 b13
+ZTEWelink (Gosuncn)	ME3616	IMT core b1, 1800 b3, 850 b5, 900 b8

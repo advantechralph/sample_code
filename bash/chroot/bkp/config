@@ -1,0 +1,3 @@
+lowerdir=/
+lowerdir=${lowerdir:-${scriptdir}/lower}
+overlaydir=${overlaydir:-${scriptdir}/overlay}

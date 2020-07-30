@@ -1,0 +1,5 @@
+
+/etc/udev/rules.d/50-android.rules
+
+~/.android/adb_usb.ini
+

@@ -1,0 +1,10 @@
+"after read file goto the last mark
+if has("autocmd")
+  au BufReadPost * if line("'\"") >0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+set t_te=
+set modeline
+"set ts=2 sw=2 et
+au BufRead,BufNewFile *.ino set filetype=cpp
+set tags=./tags;/
+

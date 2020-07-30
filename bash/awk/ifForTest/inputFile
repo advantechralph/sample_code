@@ -1,0 +1,21 @@
+NB-IoT Frequency Bands
+NB-IoT Band    Uplink Band    Downlink Band    Bandwidth    Duplex Mode
+B1    1920 - 1980 MHz    2110 - 2170 MHz    60 MHz    HD-FDD
+B2    1850 - 1910 MHz    1930 - 1990 MHz    60 MHz    HD-FDD
+B3    1710 - 1785 MHz    1805 - 1880 MHz    75 MHz    HD-FDD
+B5    824 - 849 MHz    869 - 894 MHz    25 MHz    HD-FDD
+B8    880 - 915 MHz    925 - 960 MHz    25 MHz    HD-FDD
+B11    1427.9 - 1447.9 MHz    1475.9 - 1495.9 MHz    20 MHz    HD-FDD
+B12    699 - 716 MHz    729 - 746 MHz    17 MHz    HD-FDD
+B13    777 - 787 MHz    746 - 756 MHz    10 MHz    HD-FDD
+B17    704 - 716 MHz    734 - 746 MHz    12 MHz    HD-FDD
+B18    815 - 830 MHz    860 - 875 MHz    15 MHz    HD-FDD
+B19    830 - 845 MHz    875 - 890 MHz    15 MHz    HD-FDD
+B20    832 - 862 MHz    791 - 821 MHz    30 MHz    HD-FDD
+B25    1850 - 1915 MHz    1930 - 1995 MHz    65 MHz    HD-FDD
+B26    814 - 849 MHz    859 - 894 MHz    35 MHz    HD-FDD
+B28    703 - 748 MHz    758 - 803 MHz    45 MHz    HD-FDD
+B31    452.5 - 457.5 MHz    462.5 - 467.5 MHz    5 MHz    HD-FDD
+B66    1710 - 1780 MHz    2110 - 2200 MHz    70/90 MHz    HD-FDD
+B70    1695 - 1710 MHz    1995 - 2020 MHz    25 MHz    HD-FDD
+

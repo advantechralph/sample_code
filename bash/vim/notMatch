@@ -1,0 +1,6 @@
+
+
+"current line not matching deleted
+:.!sed -e '/^\( \)\{7\}[A-Z]/\!d'
+"all lines not matching deleted
+:%!sed -e '/^\( \)\{7\}[A-Z]/\!d'
