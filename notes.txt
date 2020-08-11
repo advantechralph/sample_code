@@ -1,0 +1,7 @@
+
+# bash 
+## getopt sample
+(xxx="-a 111 --append xxx -b -c 1 -d"; set -- $xxx ; opts=$(getopt -n ooxx -o "a:c:b" -l "append" -- $@;))
+
+
+# c++
