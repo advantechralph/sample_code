@@ -8,4 +8,4 @@ quiet:=$(shell [ $(S) -eq 1 ] && echo ">/dev/null 2>&1" )
 SHELL:=/bin/bash
 CC:=$(CROSS_COMPILE)gcc
 CXX:=$(CROSS_COMPILE)g++
-CFLAGS=-I$(incdir) -Wall
+CFLAGS=-I$(incdir) -Wall -std=c++11 
