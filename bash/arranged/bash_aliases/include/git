@@ -1,0 +1,15 @@
+gitb(){
+  git branch -a
+}
+gitl(){
+  git log --graph --oneline --decorate $@
+}
+gitla(){
+  git log --graph --oneline --decorate --all $@
+}
+gitlb(){
+  git log --graph --oneline --decorate --branches="$1"
+}
+gits(){
+  git status -s $@
+}

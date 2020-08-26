@@ -1,0 +1,42 @@
+_ggyy(){
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  prefix="${COMP_WORDS[@]:0:2}"
+
+#  echo -ne "\ncur=\"${cur}\", prev=\"${prev}\", prefix=\"${prefix}\"\n"
+  if [ "${prev}" == "ggyy" ] ; then
+    opts="iot lambda iam"
+    COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
+    return 0
+  fi
+  if [ "${prev}" == "lambda" ] ; then
+    opts="create-function invoke "
+    opts+="list-functions list-tags "
+    COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
+    return 0
+  fi
+  if [ "${prev}" == "create-function" ] ; then
+    opts="help --function-name --runtime --role --handler --code --description "
+    COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
+    return 0
+  fi
+  if [ "${prev}" == "invoke" ] ; then
+    opts="help "
+    opts+="--function-name "
+    opts+="--invocation-type "
+    opts+="--log-type "
+    opts+="--client-context "
+    opts+="--payload "
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+  fi
+}
+
+ggyy(){
+  # complete test
+  echo $@
+}
+
+complete -F _ggyy ggyy
