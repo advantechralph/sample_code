@@ -145,7 +145,8 @@ void Init(void){
   for(int i=0; i<16; i++){
     Wdata(line1[i]);
   }
-  Wcom(0xc0);
+  //0x80: 1st line, 0x90: 2nd line, 0xA0: 3rd line, 0xB0: 4th line
+  Wcom(0x90);
   for(int i=0; i<16; i++){
     Wdata(line2[i]);
   }
