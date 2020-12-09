@@ -1,0 +1,4 @@
+
+.PHONY: prepare
+prepare: $(builddir)
+
