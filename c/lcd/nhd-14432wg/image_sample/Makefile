@@ -4,7 +4,7 @@ include $(currdir)/macro.mk
 include $(currdir)/rules/*.mk
 
 .PHONY: all
-all: build
+all: build run
 	
 .PHONY: build
 build: $(builddir) $(builddir)/.build
@@ -22,6 +22,10 @@ $(builddir)/.build.cmd:
 
 $(builddir)/.do_build.cmd: 
 	@/bin/bash $(builddir)/.build.cmd $(quiet)
+
+.PHONY: run
+run: 
+	@$(target)
 
 .PHONY: clean
 clean: 

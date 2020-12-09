@@ -1,0 +1,7 @@
+/build*
+/sample
+/log*
+*.s
+*.i
+*.o
+

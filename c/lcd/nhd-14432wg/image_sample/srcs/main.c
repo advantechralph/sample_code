@@ -5,7 +5,7 @@ typedef unsigned char uint8;
 #define ReturnHome					0x02
 #define EntryModeSet(RL,S)				(0x04|(RL<<1)|S)
 #define DisplayControl(D,C,B)				(0x08|(D<<2)|(C<<1)|(B))
-#define CursorDisplayControl(SC,RL)			(0x10|(SC<<3)|(RL<<@))
+#define CursorDisplayControl(SC,RL)			(0x10|(SC<<3)|(RL<<2))
 #define FunctionSet(DL,RE,G)				(0x20|(DL<<4)|(RE<<2)|(G<<1))
 #define SetCGRAMAddress(x)				(0x40|x)
 #define SetDDRAMAddress(x)				(0x80|x)
@@ -41,7 +41,7 @@ void mdelay(int ms){
     usleep(1000*ms);
 }
 void Wcom(uint8 A){
-    //printf("Wcom: %02X\n", A);
+    printf("Wcom: %02X\n", A);
     SetData(A); 
     ResetPinRS();
     ResetPinRW();
@@ -113,7 +113,13 @@ void Show(void){
         }
     }
 }
+void DisplayOff(void){
+    printf("%s, %d: \n", __FUNCTION__, __LINE__);
+    Wcom(FunctionSet(1,0,0));
+    Wcom(DisplayControl(0,0,0));
+}
 void Init(void){
+    printf("%s, %d: \n", __FUNCTION__, __LINE__);
     int i=0, j=0;
     /*
     Wcom(0x38); 
@@ -150,6 +156,7 @@ int main(int argc, char *argv[]){
     Info();
     Init();
     Show();
+    DisplayOff();
     return 0; 
 }
 
