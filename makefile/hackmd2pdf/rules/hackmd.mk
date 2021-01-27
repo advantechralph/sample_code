@@ -3,8 +3,8 @@
 hackmd2pdf: $(builddir)
 	@echo format doc
 	curl -s -L "https://hackmd.io/$(AU_HACKMD_CODE)/download" \
-	-o /tmp/$(AU_HACKMD_CODE).md
-	pandoc /tmp/$(AU_HACKMD_CODE).md -o $(AU_OUTFILE) \
+	-o $(builddir)/$(AU_HACKMD_CODE).md
+	pandoc $(builddir)/$(AU_HACKMD_CODE).md -o $(AU_OUTFILE) \
 		--table-of-contents \
 		--latex-engine=xelatex \
 		--highlight-style=monochrome \
@@ -15,6 +15,6 @@ hackmd2pdf: $(builddir)
 		-V 'date: \today{}' \
 		-V 'documentclass:$(AU_FORMAT)' \
 		-V 'geometry:margin=3.8cm'
-	xdg-open $(AU_OUTFILE)
+#	xdg-open $(AU_OUTFILE)
 	@echo done
 

@@ -18,8 +18,11 @@ Usage:
     target: 
 
       <empty>                        Default target, show this usage.
+      hackmd2pdf                     Convert HachMD md file to pdf. 
                                                                
     parameter:                                                 
+
+      AU_HACKMD_CODE                 HackMD hash code. 
                                                                
   --------
 
