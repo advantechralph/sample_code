@@ -22,7 +22,14 @@ Usage:
                                                                
     parameter:                                                 
 
-      AU_HACKMD_CODE                 HackMD hash code. 
+      code                 HackMD hash code. 
+	  format               pandoc format: article(default), report and book. 
+
+   examples:
+
+     $$ make code=pK83NesKQ2Oijo4n0EZURQ info
+     $$ make code=pK83NesKQ2Oijo4n0EZURQ hackmd2pdf
+     $$ make code=pK83NesKQ2Oijo4n0EZURQ hackmd2pdf format=report
                                                                
   --------
 
