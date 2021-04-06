@@ -10,8 +10,8 @@ struct ListNode {
   ListNode(int v, ListNode *p, ListNode *n):val(v), prev(p), next(n){ if(n) n->prev=this; };
   void dump(void){cout << "this: " << this << ", val: " << val << endl; }
   void dumpAll(void){ for(ListNode *p=this; p; p=p->next){ p->dump(); } }
-  ListNode *begin(void){ for(ListNode *p=this; p; p=p->prev){ if(p->prev==NULL) return p; } }
-  ListNode *end(void){ for(ListNode *p=this; p; p=p->next){ if(p->next==NULL) return p; } }
+  ListNode *begin(void){ for(ListNode *p=this; p; p=p->prev){ if(p->prev==NULL) return p; } return NULL; }
+  ListNode *end(void){ for(ListNode *p=this; p; p=p->next){ if(p->next==NULL) return p; } return NULL; }
 }; 
 
 void test1(void){

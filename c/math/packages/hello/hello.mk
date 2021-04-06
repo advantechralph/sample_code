@@ -1,0 +1,12 @@
+
+include $(topdir)/rules/cleanvars.mk
+PACKAGE:=hello
+# PACKAGE_SOURCES:=files
+PACKAGE_CROSSCOMPILE:=
+PACKAGE_CC:=$(PACKAGE_CROSSCOMPILE)gcc
+PACKAGE_LD:=$(PACKAGE_CROSSCOMPILE)ld
+PACKAGE_CFLAGS:=-Wall
+# PACKAGE_SOURCES:=$(PACKAGE).c
+# PACKAGE_TARGET:=$(PACKAGE)
+include $(topdir)/rules/package.mk
+

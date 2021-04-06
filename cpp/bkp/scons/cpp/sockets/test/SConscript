@@ -1,0 +1,7 @@
+Import('env')
+target="prog"
+#env['CCFLAGS'].append('-finstrument-functions')
+#env['CCFLAGS'].append('-g')
+env['CCFLAGS'].append('-Wno-unused-function')
+env['CCFLAGS'].append('-Wno-unused-variable')
+env.Program(target,[Glob('*.c'),Glob('*.cpp')])

@@ -1,0 +1,5 @@
+Import('env')
+target="prog"
+#env['CCFLAGS'].append('-finstrument-functions')
+#env['CCFLAGS'].append('-g')
+env.Program(target,[Glob('*.c')])

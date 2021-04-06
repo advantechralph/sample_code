@@ -1,0 +1,4 @@
+import os
+Import('env')
+target=os.path.basename(os.getcwd())
+env.Library(target,Glob('*.c'))

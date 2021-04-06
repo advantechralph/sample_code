@@ -1,0 +1,2 @@
+ifeq ($(modelname),dummy)
+endif

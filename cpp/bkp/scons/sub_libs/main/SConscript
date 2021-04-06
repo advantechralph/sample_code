@@ -1,0 +1,4 @@
+import os
+Import('env')
+env.Program('prog',Glob('*.c'),LIBS=Glob('../libs/*/*.a'))
+env.Install('../bin', 'prog')

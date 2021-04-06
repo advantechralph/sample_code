@@ -1,0 +1,9 @@
+import os
+Import('env')
+ccflags=[]
+ccflags.extend(env['CCFLAGS'])
+ccflags.append("-finstrument-functions")
+env_clone=env.Clone(CCFLAGS=ccflags)
+#env_clone.Program('prog',[Glob('*.c'),Glob('*/*.c')],LIBS=[Glob('../libs/*/*.a'),'rt','pthread'])
+env_clone.Program('prog',[Glob('*.c'),Glob('*.cpp')],LIBS=[Glob('../libs/*/*.a'),'rt','pthread'])
+env_clone.Install('../bin', 'prog')

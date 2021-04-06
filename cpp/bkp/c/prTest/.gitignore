@@ -1,0 +1,4 @@
+*.pyc
+build
+.sconsign.dblite
+log.make

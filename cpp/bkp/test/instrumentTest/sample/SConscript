@@ -1,0 +1,10 @@
+import os
+libsdir=os.path.realpath(os.path.join(os.getcwd(),"../../../libs"))
+#env_options={
+#  "CCFLAGS": ['-Wall'],
+#  "CPPPATH":["include",libsdir],
+#  "LIBS": ['rt','pthread']
+#}
+#env=Environment(**env_options)
+#env.Program('prog',[Glob('*.cpp')])
+Program('prog',[Glob('*.cpp')],CCFLAGS=["-Wall","-finstrument-functions"],CPPPATH=["include",libsdir],LIBS=['rt','pthread'])

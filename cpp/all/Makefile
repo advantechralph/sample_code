@@ -6,7 +6,8 @@ ifdef _REALRUN
 include macro.mk
 include rules/*.mk
 
-runs=ListNode_cpp string_cpp
+#runs=ListNode_cpp string_cpp container_cpp binarySearch_cpp
+runs=binarySearch_cpp string_cpp
 
 run all: $(runs)
 

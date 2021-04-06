@@ -1,0 +1,9 @@
+import os
+
+subdirs = ['libs','main']
+env = Environment(CCFLAGS='-Iinclude',CCPATH=['include'])
+
+for subdir in subdirs:
+    env.SConscript(os.path.join(subdir, 'SConscript'), exports = ['env'], variant_dir = os.path.join('build',subdir) )
+
+env.SConscript('SConscript',exports=['env'])

@@ -1,0 +1,5 @@
+import os
+Import('env')
+subdirs=['lib1','lib2']
+for subdir in subdirs:
+  env.SConscript(os.path.join(subdir,'SConscript'),exports=['env'])

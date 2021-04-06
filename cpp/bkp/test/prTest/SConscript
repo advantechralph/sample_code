@@ -1,0 +1,27 @@
+import os
+libsdir=os.path.realpath(os.path.join(os.getcwd(),"../../libs"))
+splitter='test'
+script=os.path.realpath(os.getcwd())
+buildroot=os.path.realpath(script.split(splitter)[0])
+if GetOption('toolchain') == 'bbb': 
+  toolchain=buildroot+"/output/host/bin"
+  cross_compile="arm-buildroot-linux-gnueabihf-"
+else:
+  toolchain=""
+  cross_compile=""
+env_options={
+  "CC"         : cross_compile+"gcc",
+  "CXX"        : cross_compile+"g++",
+  "LD"         : cross_compile+"g++",
+  "AR"         : cross_compile+"ar",
+  "STRIP"      : cross_compile+"strip",
+  "RANLIB"     : cross_compile+"ranlib",
+  "CCFLAGS": ['-Wall'],
+  "CPPPATH":["include",libsdir],
+  "LIBS": ['rt','pthread','sqlite3']
+}
+env=Environment(**env_options)
+env.Append(ENV = {'PATH' : os.environ['PATH']})
+env.PrependENVPath('PATH', [toolchain])
+env.Program('prog',[Glob('*.cpp')])
+#Program('prog',[Glob('*.cpp')],CCFLAGS=["-Wall"],CPPPATH=["include",libsdir],LIBS=['rt','pthread','sqlite3'])

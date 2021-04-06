@@ -1,0 +1,7 @@
+import os
+Import('env')
+target=os.path.basename(os.getcwd())
+testTarget=target+'Test'
+env.Library(target,[Glob('*.c'),Glob('../utils/*.c')])
+env.Program(testTarget,[Glob('test/*.c')],LIBS=[Glob('../*/*.a'),'rt'])
+env.Install('../../bin', testTarget)

@@ -1,0 +1,3 @@
+AddOption('--toolchain', dest='toolchain', choices=['bbb', 'gnu'],
+          default='bbb', help='Target Specification')
+SConscript('SConscript',variant_dir='build')

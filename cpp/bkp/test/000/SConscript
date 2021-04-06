@@ -1,0 +1,2 @@
+Program('prog',[Glob('*.cpp')],LIBS=[])
+#Program('prog',[Glob('*.cpp')],LIBS=['rt','pthread','sqlite3'])

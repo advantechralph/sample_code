@@ -1,0 +1,219 @@
+
+
+##############################################
+#                accounts                    #
+##############################################
+
+---
+# adduser
+adduser --disabled-password --gecos '' test001
+
+---
+# change password with usermod and openssl 
+# sha512 salt 123
+usermod -p "$(openssl passwd -6 -salt 123 123456)"
+
+---
+# check shadow file
+cat /etc/shadow | vim -
+
+##############################################
+#               filesystem                   #
+##############################################
+
+---
+# check ext2/ext3/ext4 default mount options
+# tune2fs
+tune2fs -l  /dev/mmcblk0p2 | grep "Default mount options"
+
+
+##############################################
+#           apache + php 5.6                 #
+##############################################
+
+---
+# apcah2 
+apt-get update
+apt-get install apache2
+
+---
+# add-apt-repository
+apt-get install software-properties-common
+
+---
+# php 5.6
+add-apt-repository ppa:ondrej/php
+apt-get update
+apt-get install php5.6
+
+---
+# check php version
+php -v
+which php
+
+---
+# list/choose all php versions
+update-alternatives --config php
+
+There are 2 choices for the alternative php (providing /usr/bin/php).
+
+  Selection    Path             Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/php7.4   74        auto mode
+* 1            /usr/bin/php5.6   56        manual mode
+  2            /usr/bin/php7.4   74        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 
+
+---
+# set php version
+# apache2 module enable 5.6 and disable 7.4
+a2enmod php5.6
+a2dismod php7.4
+# set php to 5.6 by manual
+$ update-alternatives --set php /usr/bin/php5.6
+
+
+##############################################
+#                  vsftpd                    #
+##############################################
+
+---
+# /etc/vsftpd.conf
+# append 
+
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+write_enable=YES
+chroot_local_user=YES
+local_umask=022
+user_sub_token=root
+local_root=/root/ftp
+
+---
+# /etc/vsftpd.userlist
+# add test user
+
+test
+
+---
+# acl for folders
+mkdir -p /home/test/ftp
+chown -R nobody:nogroup /home/test/ftp
+chmod go-w /home/test/ftp
+mkdir -p /home/test/ftp/test
+chown -R test:test /home/test/ftp/test
+
+---
+# restart vsftpd
+systemctl restart vsftpd
+
+
+##############################################
+#                 netcat / nc                #
+##############################################
+
+---
+# http client
+printf "GET /index.html HTTP/1.1\r\nUser-Agent: nc/0.0.1\r\nHost: 192.168.2.10\r\n\r\n\r\n" | nc 172.17.8.135 80
+
+---
+# ftp client
+nc 172.17.8.135 21
+220 (vsFTPd 3.0.3)
+USER test
+331 Please specify the password.
+PASS 123
+230 Login successful.
+PWD
+257 "/" is the current directory
+
+
+
+##############################################
+#              firewall / nat                #
+##############################################
+
+---
+# enable ipv4 forarding 
+sysctl net.ipv4.ip_forward=1
+
+---
+# statful firewall
+iptables -P FORWARD DROP
+iptables -A FORWARD -i $LAN -j ACCEPT
+iptables -A FORWARD -i $WAN -j ACCEPT -m state --state RELATED,ESTABLISHED
+
+---
+# masquerade
+iptables -t nat -A POSTROUTING -o $WAN -j MASQUERADE
+
+---
+# router 
+# simple script
+
+#!/bin/bash
+  
+#
+#     [ LAN: eth1 ]  -  [ NAT / Firewall ]  -  [ WAN - eth0 ]
+#
+
+
+# This is a testing script, please make WAN port fetch IP address first. 
+
+# echo 1 > /proc/sys/net/ipv4/ip_forward
+sysctl -w net.ipv4.ip_forward=1
+sleep 1
+ip addr add 10.10.10.1/24 dev eth1
+iptables -P FORWARD DROP
+iptables -A FORWARD -i eth1 -j ACCEPT
+iptables -A FORWARD -i eth0 -j ACCEPT -m state --state RELATED,ESTABLISHED
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+
+##############################################
+#                   snmp                     #
+##############################################
+
+---
+# install snmp
+apt-get install snmp
+# you will get only iso
+snmptranslate -Tp
+# Commnet out the line 'mibs:' in '/etc/snmp/snmp.conf', then you will get 
+# a lot of warning for 'Can not find module ...'
+# Then, install snmp-mibs-downloader
+
+---
+# install snmp-mibs-downloader
+apt-get install snmp-mibs-downloader
+
+
+---
+# /etc/snmp/snmpd.conf
+rocommunity public
+rwcommunity public
+pass .1.3.6.1.4.1.2021.255 /bin/bash /etc/snmp/passtest
+
+---
+# /etc/snmp/snmp.conf
+# mibs :
+---
+# /etc/default/snmpd
+export MIBS=/usr/share/mibs
+
+---
+# /etc/snmp/passtest
+#!/bin/bash
+echo $1 >> /tmp/passtest.log
+if [ $1 = "-g"  ] ; then
+  echo $2
+  echo integer
+  echo 13
+fi
+
+---
+# snmpwalk
+snmpwalk -mALL -v2c -c public <snmp agent server> <oid>
+# ex: 
+snmpwalk -mALL -v2c -c public localhost .1.3.6.1.4.1.2021.255

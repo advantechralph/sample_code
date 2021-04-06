@@ -1,0 +1,9 @@
+import os
+env_options={
+  "CCFLAGS"        : ["-Wall","-Iinclude",""],
+  "LINKFLAGS"      : []
+}
+env=Environment(**env_options)
+env.Append(ENV = {'PATH' : os.environ['PATH']})
+env.PrependENVPath('PATH', []) # reserved for path
+env.SConscript("SConscript",exports=['env'],variant_dir='build')

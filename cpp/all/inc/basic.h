@@ -3,6 +3,9 @@
 #include <cstdio>
 #include <iostream>
 #include <vector>
+#include <map>
+#include <list>
+#include <string>
 #ifdef  __cplusplus
 extern  "C" {
 #endif 
